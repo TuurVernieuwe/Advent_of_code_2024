@@ -1,19 +1,9 @@
 with open('1_december/input.txt', 'r') as input_file:
-    values1 = []
-    values2 = []
-
-    for line in input_file:
-        values = line.strip().split()
-        values1.append(values[0])
-        values2.append(values[1])
+    values1, values2 = zip(*(line.strip().split() for line in input_file))
     
-sorted_1 = sorted(values1)
-sorted_2 = sorted(values2)
+sorted_1 = sorted(map(int, values1))
+sorted_2 = sorted(map(int, values2))
 
-total_distance = 0
-for i in range(len(sorted_1)):
-    distance = abs(int(sorted_1[i]) - int(sorted_2[i]))
-    total_distance += distance
+total_distance = sum(abs(a - b) for a,b in zip(sorted_1, sorted_2))
 
 print(total_distance)
-
