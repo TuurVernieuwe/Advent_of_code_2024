@@ -15,7 +15,7 @@ def count_xmas(grid):
     def is_valid(x, y):
         return 0 <= x < rows and 0 <= y < cols
     
-    def check_mas_x(x, y, pattern): 
+    def check_mas_x(x, y, pattern):
         if is_valid(x, y) and is_valid(x+2, y+2):
             if (
                 grid[x][y] == pattern[0] and
